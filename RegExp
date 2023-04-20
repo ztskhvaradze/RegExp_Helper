@@ -1,0 +1,21 @@
+# Define the schema
+schema = '<schema_name>'
+
+# Define a dictionary of tables and columns
+tables_columns = {
+    '<table_name>': ['<columns>'],
+    '<table_name>': ['<columns>']
+}
+
+# Iterate through the tables and generate SQL queries for each table/column pair
+for table, columns in tables_columns.items():
+    for column in columns:
+        print(f"SELECT DISTINCT {column} FROM {schema}.{table};")
+        print(f"SELECT DISTINCT len({column}) FROM {schema}.{table};")
+        print(f"SELECT DISTINCT count({column}) FROM {schema}.{table};")
+        print(f"""
+        SELECT {column}
+        FROM {schema}.{table}
+        WHERE {column} NOT REGEXP '';
+        """)
+    print("------------------------------ NEXT TABLE ------------------------------")
